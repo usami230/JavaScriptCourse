@@ -1,69 +1,31 @@
-// Chapter Math expressions Unfamiliar operators
+// Chapter 9 Prompt
 
-// There are several specialized math expressions you need to know. Here's the first one.
-// num++;
-// This is a short way of writing...
-// num = num + 1;
+// prompt(text, defaultText)  
 
-
-// preIncrement 
-// preDecrement
-// post Increment
-// Post Decrement
+//text	String	Required. The text to display in the dialog box
+//defaultText	String	Optional. The default input text
 
 
-// Pre Increment
-var num1 = 10;
-//console.log(++num1);
+// Return Value: A String. If the user clicks "OK", the input value is returned. 
+// Return Value: If the user clicks "cancel", null is returned. 
+// Return Value: If the user clicks OK without entering any text, an empty string is returned.
 
+// 
 
+//var name = prompt("Enter your Name");
+//console.log(name);
 
- var num = 1;
- var newNum = ++num;
+// var question =  "Your species?"; 
+// var defaultAnswer = "human"; 
 
- //console.log(newNum)
+// var spec = prompt(question, defaultAnswer);
 
+// alert(spec);
 
-// preDecrement
+// =+ only accept number 
+// =+ if given string value returned NaN Not A number
 
+// var numberOfCats =+ prompt("How many cats?"); 
+// var tooManyCats = numberOfCats + 1;
 
-var num = 1;
- var newNum = --num;
-
- //console.log(newNum);
-
-
- 
-// post Increment
-
-
-var num = 1;
-var newNum = num++;
-
-//console.log(num)
-
-//console.log( newNum)
-
-
- 
-// post Decrement
-
-
-var num = 1;
-var newNum = num--;
-
-//console.log( num)
-
-//console.log( newNum)
-
-
-var test = 10
-
-console.log( "First" + --test); // 9
-console.log( "2nd" + test++); // 9
-console.log( "3rd" + ++test); // 11
-console.log( "4th" + ++test); // 12
-console.log( "5th" + test--); // 12
-console.log( "6th" + ++test); // 12
-
-
+// alert(tooManyCats);
