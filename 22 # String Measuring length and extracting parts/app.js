@@ -23,13 +23,13 @@
 // pakistan =  pakistan[0].toUpperCase();
 // console.log(pakistan);
 
-var pakistan = "pakistan";
-var firstChar = pakistan[0].toUpperCase();
-var restChar = pakistan.slice(1);
+// var pakistan = "pakistan";
+// var firstChar = pakistan[0].toUpperCase();
+// var restChar = pakistan.slice(1);
 
-console.log(firstChar + restChar);
+// console.log(firstChar + restChar);
 
-var message = "The quick brown fox jumps over the lazy dog.";
+// var message = "The quick brown fox jumps over the lazy dog.";
 
 // if(message.length > 10)
 // {
@@ -39,5 +39,14 @@ var message = "The quick brown fox jumps over the lazy dog.";
 //     console.log(message)
 // }
 
-var testingText = message.slice(5);
-console.log(testingText);
+// var testingText = message.slice(5);
+// console.log(testingText);
+
+// var str = prompt("Enter some text");
+// for (var i = 0; i < str.length; i++) {
+//    console.log(str.slice(i, i + 2))
+//   if (str.slice(i, i + 2) == "  ") { 
+//     console.log("Double spaces not allowed!");
+//     break;
+//   }
+// }
