@@ -1,0 +1,18 @@
+Write code for a live match. You've to do the following things. You can provide the output on the console or browser.
+* Get the number of overs and two team names from the user.
+* Show the message "The match is between two teams" <with their names>. (Delay: 1s)
+* Toss between two teams (Delay: 3s)
+* Winner team will go for bat. (Delay: 1s)
+* Start the first inning after showing the message for e.g. "5 Overs match started, Pakistan is to bat." (Delay: 2s)
+* On each over, show the message for e.g. "Over # 2 started" (Delay 2s)
+* On each ball, you should get the random numbers between 0 to 6.
+- 0 is out, show the message for e.g. "It's out!" (Delay 2s)
+- on 4 and 6, show some cool messages (Delay 1s on all numbers except 0)
+* After each over, show the score with the wickets for e..g. "Score: 23 / 3"
+* On ending the first inning, repeat the above for the 2nd team, but now the 2nd team has a target to achieve, so if the team achieved it successfully, the 2nd team will win else lose.
+* Show the final scores and the winner at the end.
+
+For Delay, add this below code in your code and call it like sleepFor(2000) for 2 seconds delay.
+function sleepFor( sleepDuration ){
+var now = new Date().getTime();
+while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
