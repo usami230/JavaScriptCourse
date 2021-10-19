@@ -1,0 +1,17 @@
+Consider this text:
+"The quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog".
+
+
+Task : 1) Replace these letters ("quick" , "brown" , "fox" , "lazy" , "dog") with ("lazy" , "black" , "cat" , "big" , "wall") respectively using slice(). //In one block of code
+
+
+Task: 2) Replace the first occurrence of the letter "jumps" with "bounce" using indexOf().
+
+
+Task : 3) Replace the letter "brown" with "black" from last using lastIndexOf().
+
+
+Task: 4) Replace the first occurrence of the letter "The" with "A" using replace().
+
+
+Task: 5) Replace "jumps" with "jumping" from complete text using replace().
