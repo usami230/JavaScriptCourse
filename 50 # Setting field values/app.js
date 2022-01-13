@@ -1,10 +1,15 @@
-//Chapter # 44 Commenting
-
-// Commenting
-
-/*
-When a comment requires more than one line,
-a block comment like this, with its opening
-and closing tags, is the way to go
-
-*/
+function fillCity() {
+    var cityName;
+    var zipEntered = document.getElementById("zip").value;
+    switch (zipEntered) {
+        case "60608":
+            cityName = "Chicago";
+            break;
+        case "68114":
+            cityName = "Omaha";
+            break;
+        case "53212":
+            cityName = "Milwaukee";
+    }
+    document.getElementById("city").value = cityName;
+}

@@ -1,0 +1,182 @@
+
+        $scope.Test = function () {
+
+            $http({
+                method: "GET",
+                url: "",
+                datatype: "json"
+            }).then(function (response) {
+                $scope.Testing = response.data;
+            }, function () {
+                alert("Error");
+
+            });
+
+        }
+
+--------------------------------------------
+$scope.Test = function () {
+            
+            var data = {
+                id: $('#txtid').val()
+            }
+            $http.post(apiBaseUrl + "Test/Delete", data)
+           .then(function (response) {
+               alert(JSON.stringify(response.data));
+               if (response.data == "Record Delete SuccessFully") {                 
+               }
+
+           }, function () {
+
+               $scope.errorMessage = "Failed to add User to the database.";
+           })
+           .finally(function () {
+
+           });
+
+        }
+
+
+-------------------------------------
+
+	[HttpGet]
+        [Route("api/BranchApi/GetBranch")]
+        public HttpResponseMessage GetBranch()
+        {
+            string query = "";
+            cmd = new SqlCommand(query);
+            DataSet ds = DAL.GetdataSet(cmd);
+            return Request.CreateResponse(HttpStatusCode.OK, ds.Tables[0], Configuration.Formatters.JsonFormatter);
+        }
+-----------------------------------------------------------
+        [HttpPost]
+        [Route("api/BranchApi/Delete")]
+        public string Delete(Branch B)
+        {
+            string _result = "";
+            string query = "";
+            cmd = new SqlCommand(query);
+            DAL.ExecuteNonQuery(cmd);
+            _result = "Record Delete SuccessFully";
+            return _result;
+        }
+
+
+
+
+----------------------------------------------------------------------------------
+
+public SqlConnection con;
+       public SqlCommand cmd;
+       public SqlDataAdapter adp;
+        DataTable dt;
+        DataSet dts;
+        public SqlTransaction transaction;
+        public int msg = 0;
+        int result = 0;
+        public DataAccessLayer()
+        {
+            Connection();
+        }
+        private void Connection()
+        {
+            string sql = "data source = servername; initial catalog = dbname; user id = id; password =123;";
+           
+            string sql = "data source = servername; initial catalog =  dbname;  Integrated Security=True;";
+            con = new SqlConnection(sql);
+        }
+
+        public int ExecuteNonQuery(SqlCommand cmd)
+        {
+            con.Open();
+            cmd.Connection = con;
+            int result = cmd.ExecuteNonQuery();
+            con.Close();
+            return result;
+        }
+        public int DtlExecuteNonQuery(string query)
+        {
+            try
+            {
+                cmd = new SqlCommand(query, con, transaction);
+                result = cmd.ExecuteNonQuery();
+                msg = 1;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                msg = 0;
+                return result;
+            }
+
+        }
+        public int ExecuteScalar(SqlCommand cmd)
+        {
+            con.Open();
+            cmd.Connection = con;
+            int result = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return result;
+        }
+
+        public int ExecuteScalars(string query)
+        {
+            try
+            {
+
+                //con.Open();
+                transaction = con.BeginTransaction();
+                cmd = new SqlCommand(query, con, transaction);
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+                msg = 1;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                msg = 0;
+                return result;
+            }
+
+
+        }
+        public DataTable Getdata(SqlCommand cmd)
+        {
+            con.Open();
+            cmd.Connection = con;
+            adp = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            adp.Fill(dt);
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+        public DataSet GetdataSet(SqlCommand cmd)
+        {
+            con.Open();
+            cmd.Connection = con;
+            adp = new SqlDataAdapter(cmd);
+            dts = new DataSet();
+            adp.Fill(dts);
+            con.Close();
+            return dts;
+        }
+
+        public DataSet DTLGetdataSet(string query)
+        {
+            //con.Open();
+            // adp.Connection = con;
+            adp = new SqlDataAdapter(query, con);
+            dts = new DataSet();
+            adp.Fill(dts);
+            // con.Close();
+            return dts;
+        }
